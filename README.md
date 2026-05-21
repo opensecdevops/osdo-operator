@@ -1,3 +1,5 @@
+> ⚠️ **Mirror** — This repository is mirrored from [GitLab](https://gitlab.com/opensecdevops/osdo-operator). Please submit issues and merge requests there.
+
 # OSDO Operator
 
 [![CI](https://github.com/opensecdevops/osdo-operator/actions/workflows/ci.yml/badge.svg)](https://github.com/opensecdevops/osdo-operator/actions/workflows/ci.yml)
