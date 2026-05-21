@@ -1,0 +1,48 @@
+# Imagen del operator
+image:
+  repository: ghcr.io/opensecdevops/osdo-operator
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+# Imagen del scanner que usará cada Job
+scannerImage: ghcr.io/opensecdevops/osdo-scanner:latest
+
+# Recursos del operator
+resources:
+  limits:
+    cpu: 500m
+    memory: 128Mi
+  requests:
+    cpu: 10m
+    memory: 64Mi
+
+# Número de réplicas (usar leader election si > 1)
+replicaCount: 1
+
+# Habilitar leader election para alta disponibilidad
+leaderElection: false
+
+# Namespace donde se instala el operator
+# (por defecto en su propio namespace)
+serviceAccount:
+  create: true
+  name: osdo-operator
+
+# RBAC
+rbac:
+  create: true
+
+# Parámetros de salud
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8081
+  initialDelaySeconds: 15
+  periodSeconds: 20
+
+readinessProbe:
+  httpGet:
+    path: /readyz
+    port: 8081
+  initialDelaySeconds: 5
+  periodSeconds: 10

@@ -1,0 +1,16 @@
+apiVersion: v2
+name: osdo-operator
+description: Kubernetes Operator para DevSecOps nativo de cluster con OSDO
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+keywords:
+  - security
+  - devsecops
+  - kubernetes
+  - operator
+sources:
+  - https://github.com/opensecdevops/osdo-operator
+maintainers:
+  - name: OpenSecDevOps
+    url: https://github.com/opensecdevops

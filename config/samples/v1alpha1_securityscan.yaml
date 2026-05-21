@@ -1,0 +1,13 @@
+apiVersion: osdo.dev/v1alpha1
+kind: SecurityScan
+metadata:
+  name: mi-proyecto-scan
+  namespace: default
+spec:
+  target: "https://github.com/mi-org/mi-proyecto"
+  scanType:
+    - sast
+    - sca
+    - secrets
+  policyRef: politica-standard
+  scanImage: "ghcr.io/opensecdevops/osdo-scanner:latest"

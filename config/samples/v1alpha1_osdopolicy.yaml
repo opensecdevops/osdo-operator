@@ -1,0 +1,34 @@
+apiVersion: osdo.dev/v1alpha1
+kind: OSDOPolicy
+metadata:
+  name: politica-standard
+  namespace: default
+spec:
+  criticalThreshold: 0
+  highThreshold: 5
+  secretsThreshold: 0
+  minScore: 50
+  requiredControls:
+    - secrets
+    - sast
+    - sca
+  failAction: warn
+---
+apiVersion: osdo.dev/v1alpha1
+kind: OSDOPolicy
+metadata:
+  name: politica-estricta
+  namespace: default
+spec:
+  criticalThreshold: 0
+  highThreshold: 0
+  secretsThreshold: 0
+  minScore: 80
+  requiredControls:
+    - secrets
+    - sast
+    - sca
+    - container-scan
+    - sbom
+    - iac
+  failAction: block
