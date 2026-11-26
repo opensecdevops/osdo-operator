@@ -2,7 +2,6 @@ package controller
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"time"
 
@@ -209,7 +208,6 @@ func (r *SecurityScanReconciler) processJobResult(ctx context.Context, scan *osd
 	scan.Status.Level = result.Level
 	scan.Status.ReportRef = reportName
 	scan.Status.CompletionTime = &metav1.Time{Time: time.Now()}
-	_ = json.Marshal(result) // evitar import no utilizado
 	return ctrl.Result{}, r.Status().Update(ctx, scan)
 }
 
